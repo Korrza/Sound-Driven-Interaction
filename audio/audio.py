@@ -72,7 +72,7 @@ while running and current_sample + FRAME_SIZE < len(samples):
 
     screen.fill((15, 15, 40))
 
-    bar_width = screen_width / num_bars
+    bar_width = screen_width / (num_bars - 14)
     avoid_bar = 0
     for i in range(num_bars):
         f_min = freq_bins[i]
