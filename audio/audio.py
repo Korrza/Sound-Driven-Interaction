@@ -4,7 +4,7 @@ from scipy.io import wavfile
 import random
 
 # === CONFIG ===
-AUDIO_PATH = "assets/champi.wav"
+AUDIO_PATH = "assets/nier.wav"
 FRAME_SIZE = 2048
 HOP_SIZE = 512
 HIGH_FREQ_MIN = 3000  # Hz
@@ -53,7 +53,8 @@ min_freq = 20
 max_freq = rate // 3
 
 freq_bins = np.logspace(np.log10(min_freq), np.log10(max_freq), num_bars + 1)
-
+size_bar_before = np.zeros(num_bars)
+smooth_size = 0.1
 while running and current_sample + FRAME_SIZE < len(samples):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -83,7 +84,8 @@ while running and current_sample + FRAME_SIZE < len(samples):
             continue
 
         band_energy = np.mean(mag[band])
-        band_energy_norm = min(band_energy / 250, 1.0)
+        size_bar_before[i] = (1 - smooth_size) * size_bar_before[i] + smooth_size * band_energy
+        band_energy_norm = min(size_bar_before[i] / 250, 1.0)
 
         x = (i - avoid_bar) * bar_width
         h = band_energy_norm * screen_height * 1.2
