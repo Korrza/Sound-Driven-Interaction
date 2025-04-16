@@ -4,7 +4,7 @@ from scipy.io import wavfile
 import random
 
 # === CONFIG ===
-AUDIO_PATH = "assets/nier.wav"
+AUDIO_PATH = "assets/bass.wav"
 FRAME_SIZE = 2048
 HOP_SIZE = 512
 HIGH_FREQ_MIN = 3000  # Hz
@@ -54,7 +54,7 @@ max_freq = rate // 3
 
 freq_bins = np.logspace(np.log10(min_freq), np.log10(max_freq), num_bars + 1)
 size_bar_before = np.zeros(num_bars)
-smooth_size = 0.1
+smooth_size = 0.4
 while running and current_sample + FRAME_SIZE < len(samples):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
