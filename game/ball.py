@@ -10,8 +10,7 @@ clock = pygame.time.Clock()
 
 
 ball = pygame.Rect(400, 0, 10, 10)
-accely = 1
-vely = 3
+vely = 20
 accelx = 0
 
 running = True
@@ -20,8 +19,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    vely += accely
-    ball.y += vely
+    
+    ball.y += vely 
     ball.x += accelx
     if ball.y >= height -10:
         ball.y = height - 10
@@ -41,7 +40,7 @@ while running:
     
     screen.fill((10, 10, 10))
     pygame.draw.circle(screen, "White", ball.center, 5, 5)
-    pygame.display.flip()
+    pygame.display.flip()   
     clock.tick(60)
 
 pygame.quit()

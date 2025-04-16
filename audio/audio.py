@@ -4,7 +4,7 @@ from scipy.io import wavfile
 import random
 
 # === CONFIG ===
-AUDIO_PATH = "assets/bass.wav"
+AUDIO_PATH = "assets/enemy.wav"
 FRAME_SIZE = 2048
 HOP_SIZE = 512
 HIGH_FREQ_MIN = 3000  # Hz

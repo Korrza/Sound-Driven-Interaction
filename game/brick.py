@@ -26,7 +26,6 @@ while running:
         x = 0
         for z in range(num_col):
             x = z * brick_width + (gap * z)
-            #color = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
             color = (155 + i * num_line, 155 + z * num_col, 0 )
             pygame.draw.rect(screen, color, (x, y, brick_width, brick_height))
         y +=brick_height + gap
